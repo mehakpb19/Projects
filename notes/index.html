@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call reminder app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+            <div class="form">
+                <h3 style="margin: 0;">Add a note</h3> 
+                <label for="note-dp" style="margin: 10px auto 5px 0px; font-size: 14px;">Please enter an image URL</label>
+                <input type="text" placeholder="Image url" id="note-dp"><br>
+                <div class="error" id="dperror" style="display: none; color: red; font-size: 12px;">Please enter an image URL.</div>
+
+                <label for="name" style="margin: 10px auto 5px 0px; font-size: 14px;">Please enter a name</label>
+                <input type="text" placeholder="Name" id="name"><br>
+                <div class="error" id="nameerror" style="display: none; color: red; font-size: 12px;">Please enter a name.</div>
+
+                <label for="bio" style="margin: 10px auto 5px 0px; font-size: 14px;">Please enter a bio</label>
+                <input type="text" placeholder="Bio" id="bio"><br>
+                <div class="error" id="bioerror" style="display: none; color: red; font-size: 12px;">Please enter a bio.</div>
+
+                <div style="display: flex;">
+  <label class="radio-item">
+    <input type="radio" name="type" class="urgent" value="urgent"> Urgent
+  </label>
+  
+  <label class="radio-item">
+    <input type="radio" name="type" class="wait" value="wait"> Wait
+  </label>
+  
+  <label class="radio-item">
+    <input type="radio" name="type" class="easy" value="easy"> Easy
+  </label>
+
+  <label class="radio-item">
+    <input type="radio"name="type" class="noneed" value="NONEED"> NONEED
+  </label>
+</div>
+<div class="error" id="typeerror" style="display: none; color: red; font-size: 12px;">Please select a type.</div>
+                <button type="submit">Add note</button>
+            </div>
+           <div class="mainapp"  >
+             <div class="btns">
+                <button class="btn" id="plus" class="plus" type="button">+</button><br>
+                <button class="btn" id="up" type="button">&#8593;</button><br>
+                <button class="btn" id="down" type="button">&#8595;</button>
+            </div>
+           
+         <div class="notes">
+                <div class="note">
+                    <div class="dp"><img src="https://i.pinimg.com/1200x/67/dc/26/67dc2654c0c0d152e568170d13eaba36.jpg" alt=""></div>
+                    <div class="name" style="margin: 0px 20px;">murfy</div>
+                    <div class="bio" style="margin: 0px 20px; color: gray;"> soluta similique sed totam unde. Esse, fugiat ipsa temporibus illum debitis aut provident atque modi repellat exercitationem nostrum ducimus!</div>
+                    <div class="type urgent"></div>
+                </div>
+                    <div class="note">
+                    <div class="dp"><img src="https://i.pinimg.com/736x/65/0e/5b/650e5b1bc166c15a3cb399e0698847c7.jpg" alt=""></div>
+                    <div class="name" style="margin: 0px 20px;">rdj</div>
+                    <div class="bio" style="margin: 0px 20px; color: gray;"> soluta similique sed totam unde. Esse, fugiat ipsa temporibus illum debitis aut provident atque modi repellat exercitationem nostrum ducimus!</div>
+                    <div class="type wait"></div>
+                
+                </div>
+                <div class="note">
+                    <div class="dp"><img src="https://i.pinimg.com/736x/d0/2f/68/d02f68f0f5caf1c86b0187215ce929e7.jpg" alt=""></div>
+                    <div class="name" style="margin: 0px 20px;">Tom Holend</div>
+                    <div class="bio" style="margin: 0px 20px; color: gray;"> soluta similique sed totam unde. Esse, fugiat ipsa temporibus illum debitis aut provident atque modi repellat exercitationem nostrum ducimus!</div>
+                    <div class="type easy"></div>
+
+                </div>
+            </div>
+
+            <div class="typeslectore">
+                <div onclick="short('urgent')" id="urgent" class="stype urgent"></div>
+                <div onclick="short('wait')" id="wait" class="stype wait"></div>
+                <div onclick="short('easy')" id="easy" class="stype easy"></div>
+                <div onclick="short('noneed')" id="noneed" class="stype noneed"></div>
+
+            </div>
+           </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>

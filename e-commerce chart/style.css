@@ -1,0 +1,366 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --card-bg: rgba(30, 41, 59, 0.45);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --primary-color: #6366f1; /* Indigo Accent */
+    --primary-hover: #4f46e5;
+    --success-color: #10b981; /* Emerald/Green Accent */
+    --success-hover: #059669;
+    --danger-color: #f43f5e; /* Rose/Red Accent */
+    --danger-hover: #e11d48;
+    --secondary-color: rgba(51, 65, 85, 0.5);
+    --secondary-hover: rgba(71, 85, 105, 0.7);
+}
+.hiden{
+    display: none !important;
+}
+.modal-overlay{
+    background: #00000086;
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.product-form{
+    position: absolute;
+
+ padding: 25px;
+border-radius: 20px;
+background: rgb(15, 23, 42);
+    /* display: none; */
+}
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dashboard Container */
+.chart-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 950px;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 
+                0 0 40px rgba(99, 102, 241, 0.05);
+}
+
+/* Header styling */
+h1 {
+    grid-column: 1 / -1;
+    font-size: 2.25rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #a5b4fc 0%, #e0e7ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.025em;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive columns */
+@media (min-width: 768px) {
+    .chart-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Panel Sections (Products & Chart) */
+.products, .chart {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.products:hover, .chart:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 30px rgba(99, 102, 241, 0.03);
+}
+
+/* Headers within Panels */
+h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.025em;
+}
+
+/* Symmetrical title header for Chart panel */
+.chart::before {
+    content: "Selected Items";
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.025em;
+    display: block;
+}
+
+/* List containers with scroll limits */
+.products-list, .chart-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Custom Scrollbar for Lists */
+.products-list::-webkit-scrollbar, .chart-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.products-list::-webkit-scrollbar-track, .chart-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.products-list::-webkit-scrollbar-thumb, .chart-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+}
+
+.products-list::-webkit-scrollbar-thumb:hover, .chart-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Product list items */
+.product {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    animation: fadeIn 0.25s ease-out;
+}
+
+.product:hover {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.product h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #e2e8f0;
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-group input {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.25);
+    background: rgba(15, 23, 42, 0.8);
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.form-actions button {
+    flex: 1;
+    padding: 0.625rem 1rem;
+    font-size: 0.85rem;
+}
+
+#submit-product-btn {
+    background: var(--success-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+#submit-product-btn:hover {
+    background: var(--success-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.25);
+}
+
+#cancel-product-btn {
+    background: var(--secondary-color);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#cancel-product-btn:hover {
+    background: var(--secondary-hover);
+    color: var(--text-primary);
+}
+
+/* General Buttons styling */
+button {
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Row Action Buttons */
+.add-btn, #add-btn {
+    background: var(--success-color);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.add-btn:hover, #add-btn:hover {
+    background: var(--success-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+}
+
+.add-btn:active, #add-btn:active {
+    transform: translateY(1px);
+}
+
+.remove-btn, #remove-btn {
+    background: var(--danger-color);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 12px rgba(244, 63, 94, 0.2);
+}
+
+.remove-btn:hover, #remove-btn:hover {
+    background: var(--danger-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(244, 63, 94, 0.3);
+}
+
+.remove-btn:active, #remove-btn:active {
+    transform: translateY(1px);
+}
+
+/* Footer Section Action Buttons (More Products, Clear All) */
+#add-product-btn, #clear-btn {
+    width: 100%;
+    padding: 0.875rem;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    margin-top: auto; /* Push to the bottom of the flex box */
+}
+
+#add-product-btn {
+    background: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+}
+
+#add-product-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+#add-product-btn:active {
+    transform: translateY(1px);
+}
+
+/* Hide "More products" button when the form is active */
+#add-product-btn.hidden {
+    display: none;
+}
+
+#clear-btn {
+    background: var(--secondary-color);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#clear-btn:hover {
+    background: rgba(244, 63, 94, 0.15);
+    color: #fda4af;
+    border-color: rgba(244, 63, 94, 0.3);
+}
+
+#clear-btn:active {
+    background: rgba(244, 63, 94, 0.25);
+}
+
+/* Entry Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

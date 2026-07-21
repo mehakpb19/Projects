@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-commerce chart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chart-container">
+        <h1>E-Commerce Sales Chart</h1>
+        
+        <!-- Left Panel: Products List -->
+        <div class="products">
+            <h3>Products</h3>
+            
+            <div class="products-list" id="products-list">
+                <div class="product">
+                    <h4>sfd</h4>
+                    <div>34</div>
+                    <button id="add-btn" type="button">Add me!</button>
+                </div>
+            </div>
+
+            <button id="add-product-btn" onclick="formoffon()" type="button">More products</button>
+        </div>
+        
+        <!-- Right Panel: Selected Chart/Cart Items -->
+        <div class="chart">
+            <div class="chart-list">
+            </div>
+            <button type="button" id="clear-btn">clear all</button>
+        </div>
+        
+    </div>
+
+    <!-- Beautiful Full-Screen Modal Overlay for Adding New Products -->
+    <div id="add-product-modal" class="modal-overlay hiden">
+        <form id="add-product-form" class="product-form">
+            <h2>Add New Product</h2>
+            <p class="form-desc">Define the item name to expand your sales list catalog.</p>
+            <div class="form-group">
+                <label for="new-product-name">Product Name</label>
+                <input type="text" id="new-product-name" placeholder="Enter product name..." required autocomplete="off">
+                <label for="new-product-price">Product Price</label>
+                <input type="number" id="new-product-price" placeholder="Enter product price..." min="0" required autocomplete="off">
+            </div>
+            <div class="form-actions">
+                <button type="button" id="submit-product-btn">Create Product</button>
+                <button type="button" onclick="formoffon()" id="cancel-product-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <h1 id="total">0</h1>
+    <script src="index.js"></script>
+</body>
+</html>
