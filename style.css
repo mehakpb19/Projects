@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #000;
+    color: white;
+}
+.log{
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10vw;
+    width: 200px;
+    display: flex;
+
+}
+p{
+    margin-block: auto;
+    margin-inline-start: 5px;
+    font-size: 7px;
+}
+.line{
+    margin-left: 5px;
+    margin-block: auto;
+    border-left: 2px solid;
+    height: 20px; 
+}
+h5{
+    margin-left: auto;
+    margin-right: 10px;
+    font-size: 6px;
+    color: #bbbbbb;
+}
