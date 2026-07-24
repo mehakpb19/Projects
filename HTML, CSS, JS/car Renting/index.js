@@ -1,18 +1,19 @@
 class Car{
-    constructor(name,rent,Status){
+    constructor(name,rent,Status,id){
         this.name = name;
         this.rent = rent;
         this.Status = Status;
+        this.id = id;
     }
     statustoggle(){       
-        if (this.Status === 'Available') {
-            this.Status = 'UnAvailable';        
+        if (this.Status === true) {
+            this.Status = false;        
         }else{
-            this.Status = 'Available';        
+            this.Status = true;        
         }
     }
 }
-class rentagenci{
+class Rentagenci{
     constructor(){
         this.car = [];
         this.inc = 0;
@@ -22,7 +23,7 @@ class rentagenci{
     }
     updateui(){
         let carsob = document.getElementById('cars');
-
+        carsob.innerHTML = '';
         this.car.forEach(car=>{
                 // Create the main container
             const carDiv = document.createElement('div');
@@ -36,12 +37,12 @@ class rentagenci{
             h3.textContent = car.name;
 
             const p = document.createElement('p');
-            p.textContent = `ID: V-01 | $${car.rent}/day`;
+            p.textContent = `ID: ${car.id} | $${car.rent}/day`;
 
             const statusDiv = document.createElement('div');
             statusDiv.className = 'status';
-            statusDiv.textContent = `Status: ${car.Status}`;
-            statusDiv.style.color = `${car.Status === "Available"?"var(--green)":"var(--red)"}`;
+            statusDiv.textContent = `Status: ${car.Status===true?"Available":'UnAvailable'}`;
+            statusDiv.style.color = `${car.Status === true?"var(--green)":"var(--red)"}`;
 
             detailsDiv.append(h3, p, statusDiv);
 
@@ -58,15 +59,17 @@ class rentagenci{
             const rentBtn = document.createElement('button');
             rentBtn.className = 'rent-btn';
             rentBtn.textContent = 'Rent';
+            
             rentBtn.addEventListener('click', ()=> {
                 this.rentcar(input,statusDiv , car.rent,rentBtn,returnBtn,h3);
-})
+            })
             const returnBtn = document.createElement('button');
-            returnBtn.className = 'return-btn unclickable-button'; // Fixed capitalization
+            returnBtn.className = 'return-btn'; // Fixed capitalization
             returnBtn.textContent = 'Return';
-           returnBtn.addEventListener('click', ()=> {
+            returnBtn.addEventListener('click', ()=> {
                 this.returncar(statusDiv,rentBtn,returnBtn,h3);
-})
+            })
+            car.Status===true?returnBtn.classList.toggle('unclickable-button'):rentBtn.classList.toggle('unclickable-button');
             controlsDiv.append(input, rentBtn, returnBtn);
             carDiv.append(detailsDiv, controlsDiv);
             carsob.appendChild(carDiv);
@@ -78,37 +81,29 @@ class rentagenci{
             alert('endter the value');
         }else{           
         let revenue = document.getElementById('revenue')      
-        this.inc =parseInt(pricepaying.value*rent);
+        this.inc +=parseInt(pricepaying.value*rent);
         revenue.textContent =`$${this.inc}`;
-        status.textContent = `Status: UnAvailable`;
-        status.style.color = 'var(--red)';
-        btn.classList.toggle('unclickable-button');
-        returnBtn.classList.toggle('unclickable-button');
-        pricepaying.value='';
 
+        pricepaying.value='';
        let ev = this.car.find(car => car.name === nam.innerText)
        ev.statustoggle();    
-
+       this.updateui();
     }
 
     }
     returncar(st,rb,returnbtn,nam){
-        st.textContent = `Status: Available`;
-        st.style.color = 'var(--green)';
-        rb.classList.toggle('unclickable-button');
-        returnbtn.classList.toggle('unclickable-button');
         let ev = this.car.find(car => car.name === nam.innerText)
-       ev.statustoggle();
-        console.log(this);
+        ev.statustoggle();
+        this.updateui();
         
     }
 
 }
 
-let angent = new rentagenci();
-angent.addcar(new Car("BMW",100,"Available"));
-angent.addcar(new Car("AUDI",150,"Available"));
-angent.addcar(new Car("FORD",120,"Available"));
-angent.addcar(new Car("Honda",50,"Available"));
+let angent = new Rentagenci();
+angent.addcar(new Car("BMW",100,true ,"v-01"));
+angent.addcar(new Car("AUDI",150,true,"v-02"));
+angent.addcar(new Car("FORD",120,true,"v-03"));
+angent.addcar(new Car("Honda",50,true,"v-04"));
 
 angent.updateui();
