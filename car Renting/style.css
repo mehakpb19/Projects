@@ -1,0 +1,93 @@
+:root{
+    --dark-backgound:#0F172A;
+    --lite-backgound:#1E293B;
+    --white: #F8FAFC;
+    --green: #10B981;
+    --red: #A13C43;
+    --super-lite:#334155;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--dark-backgound);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+main{
+    width: 50%;
+        background: var(--lite-backgound);
+    border-radius: 20px;
+}
+.header{
+    display: flex;
+    align-items: center;
+
+}
+h1{
+    margin: 10px auto 10px 15px;
+}
+.price{
+    margin: 0px 10px 10px auto;
+    color: var(--green);
+
+}
+.car{
+ background: var(--super-lite);
+ margin: 10px;
+ padding: 5px;
+ border-radius: 10px;
+ display: flex;
+
+}
+.details{
+    margin: 10px 0px 15px 20px;
+}
+h3{
+    margin: 0;
+}
+p{
+    color: rgb(163, 163, 163);
+    margin: 0;
+}
+.controles{
+    margin: auto 0 auto auto;
+}
+.input-number{
+    color: white;
+    background: #000;
+    border: none;
+    border-radius: 5px;
+    padding:8px;
+    width: 45px;
+}
+.rent-btn{
+    padding: 8px;
+    border-radius: 5px;
+    background: rgb(0, 140, 255);
+    border: none;
+    color: white;
+}
+.rent-btn:hover{
+    background: rgb(0, 115, 209);
+}
+.return-btn{
+    padding: 8px;
+    border-radius: 5px;
+    background: #AD8A18;
+    color: black;
+    border: none;
+}
+.return-btn:hover{
+    background: #886d12;
+}
+
+.unclickable-button {
+    background: rgb(53, 53, 53);
+    pointer-events: none;   /* Blocks all click events */
+    cursor: not-allowed ;   /* Shows a disabled cursor */
+    opacity: 0.6;          /* Visual look of being inactive */
+}
