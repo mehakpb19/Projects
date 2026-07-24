@@ -23,6 +23,9 @@ class Rentagenci{
     }
     updateui(){
         let carsob = document.getElementById('cars');
+        let revenue = document.getElementById('revenue');
+        revenue.textContent =`$${this.inc}`;
+
         carsob.innerHTML = '';
         this.car.forEach(car=>{
                 // Create the main container
@@ -61,13 +64,13 @@ class Rentagenci{
             rentBtn.textContent = 'Rent';
             
             rentBtn.addEventListener('click', ()=> {
-                this.rentcar(input,statusDiv , car.rent,rentBtn,returnBtn,h3);
+                this.rentcar(input.value,car.name);
             })
             const returnBtn = document.createElement('button');
             returnBtn.className = 'return-btn'; // Fixed capitalization
             returnBtn.textContent = 'Return';
             returnBtn.addEventListener('click', ()=> {
-                this.returncar(statusDiv,rentBtn,returnBtn,h3);
+                this.returncar(car.name);
             })
             car.Status===true?returnBtn.classList.toggle('unclickable-button'):rentBtn.classList.toggle('unclickable-button');
             controlsDiv.append(input, rentBtn, returnBtn);
@@ -76,23 +79,17 @@ class Rentagenci{
 
         })
     }
-    rentcar(pricepaying,status,rent,btn,returnBtn,nam){
-        if(pricepaying.value == ''){
+    rentcar(pricepaying,nam){
+        if(isNaN(pricepaying) || pricepaying <= 0){
             alert('endter the value');
         }else{           
-        let revenue = document.getElementById('revenue')      
-        this.inc +=parseInt(pricepaying.value*rent);
-        revenue.textContent =`$${this.inc}`;
-
-        pricepaying.value='';
-       let ev = this.car.find(car => car.name === nam.innerText)
-       ev.statustoggle();    
-       this.updateui();
-    }
-
-    }
-    returncar(st,rb,returnbtn,nam){
-        let ev = this.car.find(car => car.name === nam.innerText)
+            let ev = this.car.find(car => car.name === nam)
+            this.inc +=parseInt(pricepaying*ev.rent);
+            ev.statustoggle();    
+            this.updateui();
+    }}
+    returncar(nam){
+        let ev = this.car.find(car => car.name === nam)
         ev.statustoggle();
         this.updateui();
         
