@@ -3,13 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Track Explorer</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #0f172a; color: white; padding: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        .search-box { display: flex; gap: 10px; margin-bottom: 20px; }
+        input { flex: 1; padding: 10px; border-radius: 5px; border: none; background: #1e293b; color: white; }
+        button { padding: 10px 20px; background: #10b981; border: none; border-radius: 5px; color: white; cursor: pointer; font-weight: bold; }
+        button:hover { background: #059669; }
+        
+        /* The UI structure your JS must generate */
+        .track-card { background: #1e293b; padding: 15px; margin-bottom: 10px; border-radius: 8px; border-left: 4px solid #3b82f6; display: flex; gap: 15px; align-items: center; }
+        .track-image { width: 60px; height: 60px; border-radius: 4px; object-fit: cover; }
+        .track-info { display: flex; flex-direction: column; }
+        .track-name { font-size: 1.2rem; font-weight: bold; }
+        .album-name { color: #94a3b8; font-size: 0.9rem; margin-top: 5px; }
+    </style>
 </head>
 <body>
-    <a href="./HTML, CSS, JS/car Renting/index.html"><h1>html</h1></a>
-    <a href="./HTML, CSS, JS/e-commerce chart/index.html"><h1>html</h1></a>
-    <a href="./HTML, CSS, JS/banking system/index.html"><h1>html</h1></a>
-    
+    <div class="container">
+        <h1>Track Explorer</h1>
+        <div class="search-box">
+            <input type="text" id="artist-input" placeholder="Enter artist name...">
+            <button id="search-btn">Search</button>
+        </div>
+        <div id="results-container">
+           
+            </div>
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
