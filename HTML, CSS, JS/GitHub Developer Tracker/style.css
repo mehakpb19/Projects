@@ -1,0 +1,124 @@
+:root{
+    --main-bg:#0F172A;
+    --color:#4493F8;
+    --lite-bg: #1E293B;
+    
+}
+body{
+    font-family: sans-serif;
+    margin: 0;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--main-bg);
+    color: white;
+}
+
+
+/* header */
+
+
+header{
+    margin: 7% 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+input{
+    outline: none;
+    border-radius: 10px;
+    border: 2px solid transparent; 
+    width: 500px;
+    font-size: 15px;
+    padding: 15px;
+    background: var(--lite-bg);
+    color: rgb(255, 255, 255);
+    margin-right: 7px;
+    transition: all 1s ease;
+}
+input::placeholder{
+    color: grey;
+}
+input:focus{
+    border-color: #38BDF8; 
+}
+
+
+
+/* main */
+
+
+main{
+    margin: 20px 0 7% 0;
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 550px;
+    height: 550px;
+    border-radius: 10px;
+    background-color: var(--lite-bg);
+}
+.profile-pic{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile h1, .profile p{
+    margin-block: 10px 0;
+    
+}
+.profile p{
+    color: rgb(190, 190, 190);
+    margin-top: 0px;
+}
+.container{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+.container div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--main-bg);
+    padding: 10px;
+    border: 1px solid var(--color);
+    border-radius: 5px;
+    width: 60px;
+}
+.container div h4{ 
+    color: aquamarine;
+    margin: 0;
+}
+.profile h4{
+  margin: 20px auto 5px 10%;
+}
+.profile hr{
+    width: 85%;
+    background-color: rgb(82, 82, 82);
+    height: 1px;
+    border: none;
+}
+.profile button{
+    color: rgb(255, 255, 255);
+    width: 80%;
+    background: var(--main-bg);
+    outline: none;
+    border: none;
+    margin: 5px;
+    font-size: 16px;
+    padding: 10px;
+    text-align: left;
+    padding-left: 15px;
+    border-radius: 5px;
+}
+.profile button:hover{
+    background: #293850;
+}
