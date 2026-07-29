@@ -131,10 +131,10 @@ main{
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(20px); /* Starts 20px lower */
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);    /* Moves up to its original spot */
+    transform: translateY(0);
   }
 }
