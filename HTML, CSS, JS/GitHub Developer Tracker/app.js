@@ -2,7 +2,7 @@ class Search {
     constructor() {
         const allowedChars = /^[a-zA-Z0-9-]+$/;
         document.querySelector('input').addEventListener('input',debounce((e,...args)=> {
-            if (e.value !== '' || !e.test(allowedChars)) {
+            if (e.value !== '' && allowedChars.test(e.value)) {
                 this.getuser(e.value)
             }
         },1000))
