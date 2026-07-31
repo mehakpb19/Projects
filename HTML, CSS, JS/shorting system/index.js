@@ -4,7 +4,7 @@ class SortSystem {
     this.barsdiv = [];
     this.barsdata = [];
     this.speed = 2;
-    this.isSorting=false;
+    this.isSorting = false;
     this.updatebars(20);
     let input = document.querySelectorAll("input");
     input.forEach((el) => {
@@ -15,15 +15,32 @@ class SortSystem {
         }, 500),
       );
     });
-    let bubblesort = document.querySelector("#Bubble-Sort");
-    bubblesort.addEventListener("click", () => {
-      if (!this.isSorting) this.sort();
+    let bubblesortbtn = document.querySelectorAll("button");
+    bubblesortbtn.forEach((e) => {
+      e.addEventListener("click", () => {
+        if (!this.isSorting) this.sort(e);
+      });
     });
   }
-  async sort() {
-    await this.bubblesort(this.barsdiv, this.speed);
+  async sort(e) {
+    switch (e.id) {
+      case "Bubble-Sort":
+        await this.bubblesort(this.barsdiv, this.speed);
+        break;
+      case "Selection-Sort":
+        await this.SelectionSort(this.barsdiv, this.speed);
+        break;
+      case "Insertion-Sort":
+        await this.InsertionSort(this.barsdiv, this.speed);
+        break;
+      case "Merge-Sort":
+        await this.MergeSort(this.barsdiv, this.speed);
+        break;
+      default:
+        break;
+    }
   }
-  
+
   async bubblesort(a, dl) {
     this.isSorting = true;
     for (let j = a.length; j > 0; j--) {
@@ -36,12 +53,12 @@ class SortSystem {
         ) {
           a[i + 1].classList.toggle("yellow");
           a[i + 1].classList.toggle("red");
-          
+
           await this.delay((dl * 100) / 2);
           let tempHeight = a[i].style.height;
           a[i].style.height = a[i + 1].style.height;
           a[i + 1].style.height = tempHeight;
-          
+
           a[i + 1].classList.toggle("yellow");
           a[i + 1].classList.toggle("red");
           a[i].classList.toggle("red");
@@ -54,6 +71,32 @@ class SortSystem {
     }
     this.isSorting = false;
     return await a;
+  }
+  async SelectionSort(a, dl) {
+    console.log(a);
+
+    for (let i = 0; i < a.length; i++) {
+      let min = a[i];
+      let mini = i;
+      for (let j = i; j < a.length; j++) {
+        if (parseInt(min.style.height) > parseInt(a[j].style.height)) {
+          a[j].classList.add("red");
+          min.classList.remove("red");
+          min = a[j];
+          mini = j;
+        } else {
+          min.classList.add("red");
+          a[j].classList.remove("red");
+        }
+      }
+      await this.delay((dl * 100) / 2);
+      let temp = a[i].style.height;
+      a[i].classList.add("yellow");
+      await this.delay((dl * 100) / 2);
+      a[i].style.height = min.style.height;
+      a[i].classList.add("green");
+      a[mini].style.height = temp;
+    }
   }
 
   delay(ms) {
