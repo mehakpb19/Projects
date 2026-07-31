@@ -66,8 +66,17 @@ input::-webkit-inner-spin-button {
     margin-top: auto;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    height:100%;
     width: 100%;
-    background: var(--mint);
+    background-color: var(--mint);
+    transition: all 0.1 ease;
+}
+.yellow{
+    background-color: yellow;
+}
+.red{
+    background-color: red;
+}
+.green{
 
+    background-color: green;
 }
