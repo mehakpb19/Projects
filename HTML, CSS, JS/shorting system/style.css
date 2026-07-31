@@ -71,12 +71,12 @@ input::-webkit-inner-spin-button {
     transition: all 0.1 ease;
 }
 .yellow{
-    background-color: yellow;
+    background-color: rgb(255, 255, 48);
 }
 .red{
-    background-color: red;
+    background-color: rgb(255, 65, 65);
 }
 .green{
 
-    background-color: green;
+    background-color: rgb(74, 255, 83);
 }

@@ -17,8 +17,7 @@ class SortSystem {
     });
     let bubblesort = document.querySelector("#Bubble-Sort");
     bubblesort.addEventListener("click", () => {
-      if (this.isSorting) return;
-      this.sort();
+      if (!this.isSorting) this.sort();
     });
   }
   async sort() {
@@ -27,8 +26,8 @@ class SortSystem {
   
   async bubblesort(a, dl) {
     this.isSorting = true;
-    let f = async (length) => {
-      for (let i = 0; i < length - 1; i++) {
+    for (let j = a.length; j > 0; j--) {
+      for (let i = 0; i < j - 1; i++) {
         a[i].classList.add("yellow");
         a[i + 1].classList.add("yellow");
         if (
@@ -51,9 +50,6 @@ class SortSystem {
         a[i].classList = "bar";
         a[i + 1].classList = "bar";
       }
-    };
-    for (let j = a.length; j > 0; j--) {
-      await f(j);
       a[j - 1].classList.toggle("green");
     }
     this.isSorting = false;
