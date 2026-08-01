@@ -70,33 +70,57 @@ class SortSystem {
       a[j - 1].classList.toggle("green");
     }
     this.isSorting = false;
-    return await a;
   }
   async SelectionSort(a, dl) {
+    this.isSorting = true;
     console.log(a);
 
     for (let i = 0; i < a.length; i++) {
       let min = a[i];
       let mini = i;
-      for (let j = i; j < a.length; j++) {
+      for (let j = i + 1; j < a.length; j++) {
+        a[j].classList.add("yellow");
         if (parseInt(min.style.height) > parseInt(a[j].style.height)) {
           a[j].classList.add("red");
           min.classList.remove("red");
           min = a[j];
           mini = j;
-        } else {
-          min.classList.add("red");
-          a[j].classList.remove("red");
         }
+        await this.delay((dl * 100) / 2);
+        a[j].classList.remove("yellow");
       }
-      await this.delay((dl * 100) / 2);
+      min.classList.remove("red");
       let temp = a[i].style.height;
-      a[i].classList.add("yellow");
-      await this.delay((dl * 100) / 2);
       a[i].style.height = min.style.height;
+      a[i].classList.add("red");
+      await this.delay((dl * 100) / 2);
+      a[i].classList.remove("red");
       a[i].classList.add("green");
       a[mini].style.height = temp;
     }
+    this.isSorting = false;
+  }
+  async InsertionSort(a, dl) {
+    this.isSorting = true;
+    for (let i = 1; i < a.length; i++) {
+      a[i].classList.add("yellow");
+      let temp = a[i].style.height;
+      let j = i - 1;
+      while (j >= 0 && parseInt(a[j].style.height) > parseInt(temp)) {
+        a[j].classList.add("red");
+        await this.delay((dl * 100) / 2);
+        a[j + 1].style.height = a[j].style.height;
+        a[j].classList.remove("red");
+        j--;
+      }
+      a[j + 1].style.height = temp;
+      a[i].classList.remove("yellow");
+    }
+    for (let i = 0; i < a.length; i++) {
+      await this.delay((dl * 100) / 3);
+      a[i].classList.add("green");
+    }
+    this.isSorting = false;
   }
 
   delay(ms) {
