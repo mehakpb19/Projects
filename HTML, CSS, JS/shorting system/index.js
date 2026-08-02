@@ -122,7 +122,71 @@ class SortSystem {
     }
     this.isSorting = false;
   }
+  async MergeSort(a, dl) {
+    this.isSorting = true;
+    await this.MergeSortHelper(a, 0, a.length - 1, dl);
+    for (let i = 0; i < a.length; i++) {
+      a[i].classList.add("green");
+      await this.delay((dl * 100) / 3);
+    }
+    this.isSorting = false;
+  }
 
+  async MergeSortHelper(a, start, end, dl) {
+    if (start >= end) {
+      return;
+    }
+    let mid = Math.floor((start + end) / 2);
+    await this.MergeSortHelper(a, start, mid, dl);
+    await this.MergeSortHelper(a, mid + 1, end, dl);
+
+    await this.MergeSorter(a, start, mid, end, dl);
+  }
+  async MergeSorter(a, start, mid, end, dl) {
+    let leftarray = [];
+    let rightarray = [];
+    for (let i = start; i <= mid; i++) {
+      leftarray.push(a[i].style.height);
+    }
+    for (let i = mid + 1; i <= end; i++) {
+      rightarray.push(a[i].style.height);
+    }
+    let l = 0;
+    let r = 0;
+    let k = start;
+
+    while (l < leftarray.length && r < rightarray.length) {
+      a[k].classList.add("yellow");
+      await this.delay((dl * 100) / 2);
+      if (parseInt(leftarray[l]) < parseInt(rightarray[r])) {
+        a[k].style.height = leftarray[l];
+        l++;
+      } else {
+        a[k].style.height = rightarray[r];
+        r++;
+      }
+
+      a[k].classList.remove("yellow");
+
+      k++;
+    }
+    while (l < leftarray.length) {
+      a[k].classList.add("yellow");
+      await this.delay((dl * 100) / 2);
+      a[k].style.height = leftarray[l];
+      a[k].classList.remove("yellow");
+      l++;
+      k++;
+    }
+    while (r < rightarray.length) {
+      a[k].classList.add("yellow");
+      await this.delay((dl * 100) / 2);
+      a[k].style.height = rightarray[r];
+      a[k].classList.remove("yellow");
+      r++;
+      k++;
+    }
+  }
   delay(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
