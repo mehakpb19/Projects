@@ -1,0 +1,36 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+  color: white;
+}
+.parent {
+  background: #111;
+  min-height: 100vh;
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;  
+  align-items: center;
+  flex-wrap: wrap;
+}
+.card {
+  padding: 10px;
+  background: #333;
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #bababa;
+  padding: 2px;
+  border-radius: 50%;
+  object-fit: cover;
+}
