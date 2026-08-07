@@ -1,7 +1,13 @@
+import Section1 from "./Components/section 1/Section1";
+import Section2 from "./Components/section 2/Section2";
+
 const App = () => {
   return (
-    <div className='bg-red-500'>sApp</div>
-  )
-}
+    <>
+      <Section1 />
+      <Section2 />
+    </>
+  );
+};
 
-export default App
+export default App;
