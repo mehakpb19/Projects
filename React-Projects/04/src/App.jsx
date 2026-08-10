@@ -1,6 +1,12 @@
+import axios from "axios";
+
 const App = () => {
+  async function fetchData() {
+    let response = await axios.get("https://picsum.photos/v2/list?page=2&limit=100");
+    console.log(response);
+  }
   return (
-    <div>App</div>
+    <button onClick={fetchData}>Click me</button>
   )
 }
 
