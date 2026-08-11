@@ -1,12 +1,20 @@
-import axios from "axios";
+import Navbar from "./components/Navbar"
+import{ Routes,Route} from 'react-router-dom'
+import Home from "./pages/Home"
+import Contact from "./pages/Contact"
+import Aboutus from "./pages/Aboutus"
 
 const App = () => {
-  async function fetchData() {
-    let response = await axios.get("https://picsum.photos/v2/list?page=2&limit=100");
-    console.log(response);
-  }
   return (
-    <button onClick={fetchData}>Click me</button>
+    <div className="bg-black text-white h-screen">
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/contact' element={<Contact/>}/>
+        <Route path='/aboutus' element={<Aboutus/>}/>
+      </Routes>
+
+    </div>
   )
 }
 
