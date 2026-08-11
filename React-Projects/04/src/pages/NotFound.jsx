@@ -1,0 +1,40 @@
+import { useState } from 'react';
+
+const NotFound = () => {
+  // Initialize the spotlight in the center of the screen
+  const [position, setPosition] = useState({ x: '50%', y: '50%' });
+
+  // Update position on mouse move
+  const handleMouseMove = (e) => {
+    setPosition({ x: `${e.clientX}px`, y: `${e.clientY}px` });
+  };
+
+  return (
+    <div 
+      className="relative w-screen h-screen bg-gray-900 text-white overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
+      {/* Main content hidden by default, revealed by spotlight */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+        <h1 className="text-6xl font-bold mb-4">Page Not Found</h1>
+        <p className="text-xl">
+          Sorry, we couldn’t find the page you’re looking for.
+        </p>
+        <a href="/" className="mt-6 px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded">
+          Go Home
+        </a>
+      </div>
+
+      {/* Dark overlay with spotlight mask */}
+      <div 
+        className="absolute inset-0 bg-black z-20 pointer-events-none"
+        style={{
+          maskImage: `radial-gradient(circle 120px at ${position.x} ${position.y}, transparent 0%, black 150px)`,
+          WebkitMaskImage: `radial-gradient(circle 120px at ${position.x} ${position.y}, transparent 0%, black 150px)`
+        }}
+      />
+    </div>
+  );
+};
+
+export default NotFound;
