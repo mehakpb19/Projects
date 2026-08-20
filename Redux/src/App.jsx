@@ -1,39 +1,24 @@
-import { useSelector, useDispatch } from "react-redux";
-import { amount, discrement, increment } from "./CouterSlice";
-import { useState } from "react";
-const App = () => {
-  const Dispatch = useDispatch();
-  const count = useSelector((state) => state.counter.value);
-  const [num, setnum] = useState('')
-  return (
-    <div>
-      <h1>{count}</h1>
-      <input type="number" value={num} onChange={(e)=>{
-        setnum(e.target.value)
-      }} />
-      <button
-        onClick={() => {
-          Dispatch(increment());
-        }}
-      >
-        increse
-      </button>
-      <button
-        onClick={() => {
-          Dispatch(discrement());
-        }}
-        >
-        decrese
-      </button>
-      <button
-      onClick={()=>{
-        Dispatch(amount(Number(num)));
+import FullScreen from "./Components/FullScreen";
+import Image from "./Components/Image";
+import Searchcom from "./Components/Search";
 
-      }}>
-        add amoutn
-      </button>
+const App = () => {
+  return (
+    <div className="bg-black min-h-screen h-full w-full text-white flex flex-col items-center">
+      <h1 className="text-3xl pt-10">Photots and GIF</h1>
+      <Searchcom />
+
+      <div className="w-full mt-5">
+        <div className="w-full grid grid-cols-4 gap-7 px-10 place-items-center  overflow-hidden">
+          <Image /> <Image /> <Image /> <Image />
+          <Image /> <Image /> <Image /> <Image />
+          <Image /> <Image /> <Image /> <Image />
+          <Image /> <Image />
+        </div>
+      </div>
+
+      <FullScreen />
     </div>
   );
 };
-
 export default App;
