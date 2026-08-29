@@ -21,7 +21,14 @@ const Result = () => {
       <div className="w-full mt-5">
         <div className="w-full grid grid-cols-4 gap-7 px-10 place-items-center  overflow-hidden">
           {result.map((e) => {
-            return <Resultcard key={e.thumbline} id={e.id} url={e.thumbline} titel={e.titel} />;
+            return (
+              <Resultcard
+                key={e.thumbline}
+                id={e.id}
+                url={e.thumbline}
+                titel={e.titel}
+              />
+            );
           })}
         </div>
       </div>
