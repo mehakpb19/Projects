@@ -1,16 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draggable Box</title>
+  <style>
+    /* Container for the drop zones */
+    .container {
+      display: flex;
+      gap: 50px;
+      margin-top: 50px;
+    }
+
+    /* Fixed target positions */
+    .dropzone {
+      width: 150px;
+      height: 150px;
+      border: 2px dashed #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f9f9f9;
+    }
+
+    /* The draggable box */
+    .draggable-box {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      cursor: grab;
+      border-radius: 8px;
+    }
+
+    .draggable-box:active {
+      cursor: grabbing;
+    }
+  </style>
 </head>
 <body>
-    <a href="./HTML, CSS, JS/banking system/index.html">banking</a><br>
-    <a href="./HTML, CSS, JS/car Renting/index.html">renting</a><br>
-    <a href="./HTML, CSS, JS/e-commerce chart/index.html">e-commerce</a><br>
-    <a href="./HTML, CSS, JS/notes/index.html">notes</a><br>
-    <a href="./HTML, CSS, JS/song Explorer/index.html">song explorer</a>
+
+  <div class="container">
+    <!-- Position A -->
+    <div class="dropzone" id="zone-a">
+      <div class="draggable-box" id="box" draggable="true">Drag Me</div>
+    </div>
+
+    <!-- Position B -->
+    <div class="dropzone" id="zone-b"></div>
+  </div>
+
+  <script>
+    const box = document.getElementById('box');
+    const dropzones = document.querySelectorAll('.dropzone');
+
+    // 1. Drag Start: Store the ID of the element being dragged
+    box.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('text/plain', e.target.id);
+    });
+
+    // 2. Loop through drop zones to handle dragover and drop events
+    dropzones.forEach(zone => {
+      // Prevent default behavior to allow dropping
+      zone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+      });
+
+      // 3. Drop: Move the dragged element to the new zone
+      zone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const id = e.dataTransfer.getData('text/plain');
+        const draggedElement = document.getElementById(id);
+        
+        // Append the box into the target fixed position
+        zone.appendChild(draggedElement);
+      });
+    });
+  </script>
+
 </body>
 </html>
