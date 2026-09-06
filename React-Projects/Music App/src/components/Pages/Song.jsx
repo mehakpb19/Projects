@@ -1,9 +1,9 @@
 const Song = () => {
   return (
-    <div className="w-full h-full flex flex-col gap-5 p-10">
-      <div className="flex items-end gap-5">
+    <div className="w-full h-full flex flex-col ">
+      <div className="flex items-end gap-5 p-4 bg-black bg-[linear-gradient(309deg,rgba(15,15,15,1)_0%,rgba(79,79,79,0.5)_150%)]">
         <img
-          className="rounded-3xl w-80 h-80 "
+          className="rounded w-50 h-50 "
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsw9ob2HFGka8BiXpz6OVao1G_M7uD_JawjuViL_9s8SL4_kS_MLeTttQ&s=10"
           alt=""
         />
@@ -18,8 +18,8 @@ const Song = () => {
           </div>
         </div>
       </div>
-      <div className="flex gap-5">
-        
+      <div className="flex gap-5  bg-[linear-gradient(0deg,rgba(0,0,0,0)_0%,rgba(87,68,35,0.5)_100%)] h-full">
+
       </div>
     </div>
   );

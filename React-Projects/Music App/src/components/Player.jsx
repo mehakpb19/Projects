@@ -3,7 +3,7 @@ import MusicProgressBar from "./MusicProgressBar";
 const Player = () => {
   return (
     <div className=" h-[12%] w-full">
-      <div className="bg-black/60 h-full w-full flex relative">
+      <div className="bg-gray-300/20 h-full w-full flex relative">
         {/* palying song */}
 
         <div className=" h-full gap-5 items-center flex px-6">
@@ -50,16 +50,16 @@ const Player = () => {
 
         {/* Music Progress Bar */}
 
-        <div className=" w-full  flex flex-col absolute inset-0 m-auto justify-center items-center">
-          <div className=" h-full items-end flex gap-5 ">
-            <button className="active:scale-100  hover:scale-105 p-2 outline-none">
+        <div className=" w-full  flex flex-col absolute inset-0 mt-3 items-center">
+          <div className="  items-center flex gap-5 ">
+            <button className="active:scale-100  hover:scale-105 outline-none">
               <SkipBack fill="#f1f1f1" size={20} />
             </button>
-            <button className="bg-[#f1f1f1] rounded-full active:scale-96 hover:bg-white p-2 outline-none">
+            <button className="bg-[#f1f1f1] rounded-full active:scale-96 hover:bg-white p-1.5 outline-none">
               <Play fill="black" size={20} />
               {/* {<Pause fill="white" />} */}
             </button>
-            <button className="active:scale-100  hover:scale-105 p-2 outline-none">
+            <button className="active:scale-100  hover:scale-105 outline-none">
               <SkipForward fill="#f1f1f1" size={20} />
             </button>
           </div>

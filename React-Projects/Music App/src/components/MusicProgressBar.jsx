@@ -3,7 +3,7 @@ import { useState } from "react";
 const MusicProgressBar = () => {
   const [progress, setProgress] = useState(0);
   return (
-    <div className="w-[35%] h-full items-center gap-3 flex">
+    <div className="w-[35%] items-center gap-3 mb-1 flex">
       <h1 className="text-gray-300">{progress}</h1>
       <label className="relative w-full inline-flex flex-row-reverse items-center select-none">
         <input

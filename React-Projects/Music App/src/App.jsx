@@ -9,9 +9,9 @@ import Search from "./components/Pages/Search";
 import Player from "./components/Player";
 const App = () => {
   return (
-    <div className="h-screen relative  bg-black text-white bg-[linear-gradient(130deg,rgba(8,42,43,0.6)_5%,rgba(15,15,15,0.5)_40%,rgba(15,15,15,0.5)_60%,rgba(87,68,35,0.8)_100%)]">
+    <div className="h-screen relative  bg-black text-white ">
       <Navbar />
-      <div className=" flex h-[78%] gap-5">
+      <div className=" flex h-[78%]">
         <SideBar />
         <div className="flex flex-col w-full  relative items-center">
           <Routes>
