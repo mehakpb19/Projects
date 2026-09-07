@@ -18,31 +18,16 @@ const Player = () => {
           </div>
           <div>
             <label className="flex gap-2.5 cursor-pointer justify-center items-center select-none">
+              {/* The input now matches the size of the custom checkbox wrapper to capture clicks perfectly */}
               <input
                 type="checkbox"
-                className="peer absolute opacity-0 h-0 w-0 cursor-pointer"
+                defaultChecked
+                className="peer absolute opacity-0 h-5 w-5 cursor-pointer z-10"
               />
               <div
-                className="
-        relative h-4.5 w-4.5 shrink-0 rounded-full 
-        bg-[rgba(16,16,16,0.5)]
-        transition-all duration-200 ease-out origin-[0px_10px] box-border 
-  
-        
-        /* Unchecked state for indicator */
-        after:content-[''] after:absolute after:hidden
-         after:w-[0.25em] after:h-[0.5em] 
-        after:border-black after:border-r-[0.15em] after:border-b-[0.15em] 
-        after:rotate-45 after:transition-all after:duration-500 after:ease-in-out flex
-        
-        /* Peer states when input is checked */
-        peer-checked:bg-[#3BE477]
-        peer-checked:after:flex
-        peer-checked:after:top-[45%]
-        peer-checked:after:left-1/2
-        peer-checked:after:-translate-y-1/2
-        peer-checked:after:-translate-x-1/2
-        "
+                className="relative h-5 w-5 shrink-0 rounded-full bg-[rgba(16,16,16,0.5)] transition-all duration-200 ease-out box-border flex items-center justify-center
+    after:content-[''] after:absolute after:opacity-0 after:w-[0.25em] after:h-[0.5em] after:border-black after:border-r-[0.15em] after:border-b-[0.15em] after:rotate-45 after:transition-all after:duration-300 after:ease-in-out
+    peer-checked:bg-[#3BE477] peer-checked:after:opacity-100 peer-checked:after:top-[25%] peer-checked:after:left-[38%]"
               />
             </label>
           </div>
