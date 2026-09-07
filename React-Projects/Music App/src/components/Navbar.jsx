@@ -7,7 +7,10 @@ const Navbar = () => {
   return (
     <div className="px-10 h-[10%] flex justify-between w-full border-b items-center border-gray-400 bg-black bg-[linear-gradient(309deg,rgba(79,79,79,0.7)_-50%,rgba(20,20,20,1)_50%,rgba(79,79,79,0.7)_150%)]">
       <div className="text-3xl text-yellow-400 hover:text-yellow-500 cursor-pointer active:scale-99">
-        <Link to="/">Music</Link>
+        <Link to="/" className="flex items-center gap-2">
+          <img src="/public/Logo.png" alt="Logo" className="border-0 w-10 rounded-full bg-[#92ff77c9] p-1" />
+          Music
+        </Link>
       </div>
       <div className="flex gap-2 w-full relative justify-center  ">
         <button

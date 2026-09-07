@@ -27,7 +27,7 @@ const Player = () => {
               <div
                 className="relative h-5 w-5 shrink-0 rounded-full bg-[rgba(16,16,16,0.5)] transition-all duration-200 ease-out box-border flex items-center justify-center
     after:content-[''] after:absolute after:opacity-0 after:w-[0.25em] after:h-[0.5em] after:border-black after:border-r-[0.15em] after:border-b-[0.15em] after:rotate-45 after:transition-all after:duration-300 after:ease-in-out
-    peer-checked:bg-[#3BE477] peer-checked:after:opacity-100 peer-checked:after:top-[25%] peer-checked:after:left-[38%]"
+    peer-checked:bg-[#92ff77] peer-checked:after:opacity-100 peer-checked:after:top-[25%] peer-checked:after:left-[38%]"
               />
             </label>
           </div>
@@ -53,17 +53,17 @@ const Player = () => {
 
         {/* Volume Control */}
 
-        <div className=" w-[12%] flex items-center h-full absolute inset-0 ml-auto gap-2 mr-8">
+        <div className=" w-[12%] flex items-center justify-center h-[90%] absolute inset-0 ml-auto gap-2 mr-0">
           <button className="active:scale-90">
-            <Volume2 size={25} />
+            <Volume2 size={20} />
           </button>
-          <label className="relative w-full inline-flex flex-row-reverse items-center select-none">
+          <label className="relative w-[60%] inline-flex flex-row-reverse items-center select-none">
             <input
               type="range"
               min="0"
               max="100"
               step="1"
-              className="peer cursor-pointer appearance-none w-full h-1.5 hover:h-1.7 bg-[rgba(82,82,82,0.322)] overflow-hidden rounded-[5px] transition-[height] ease-in-out cursor-inherit 
+              className="peer cursor-pointer appearance-none w-full h-1.25 hover:h-1.7 bg-[rgba(82,82,82,0.322)] overflow-hidden rounded-[5px] transition-[height] ease-in-out cursor-inherit 
             
             [&::-webkit-slider-thumb]:appearance-none 
             [&::-webkit-slider-thumb]:w-0 
