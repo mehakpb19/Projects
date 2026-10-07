@@ -1,14 +1,13 @@
 "use server";
 import { GoogleGenAI } from "@google/genai";
 
-const MsgSendingAction = async (message: string) => {
-    const apiKey = process.env.GEMINI_API_KEY;
-  const ai = new GoogleGenAI({apiKey});
+const ai = new GoogleGenAI();
+const MsgSendingAction = async (message: string): Promise<string> => {
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
     contents: message,
   });
-  return response.text;
+  return response.text || "nothign";
 };
 
 export default MsgSendingAction;
